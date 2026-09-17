@@ -2,6 +2,7 @@ services:
   - type: web
     name: proyecto-irtra-backend
     env: python
+    plan: free # Define explícitamente la instancia gratuita para el Backend
     region: oregon
     buildCommand: "pip install -r requirements.txt"
     startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"
@@ -23,4 +24,5 @@ databases:
   - name: irtra-db
     databaseName: irtra_db
     user: irtra_user
+    plan: free # Fuerza la base de datos PostgreSQL al plan gratuito
     region: oregon
